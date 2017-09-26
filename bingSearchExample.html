@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSSample</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="image_container">
+        <button class="example_button" id="atkins_button">Atkin's</button>
+        <button class="example_button" id="vegetarian_button">Vegetarian</button>
+        <button class="example_button" id="vegan_button">Vegan</button>
+        <button class="example_button" id="south_beach_button">South Beach</button>
+        <button class="example_button" id="mediterranean_button">Mediterranean</button>
+        <button class="example_button" id="paleo_button">Paleo</button>
+
+    </div>
+
+    <script type="text/javascript">
+        $(function() {
+            var params = {
+            // Request parameters
+            "q": "paleo foodORdiet",
+            "count": "10",
+            "offset": "0",
+            "mkt": "en-us",
+            "safeSearch": "Moderate",
+            "imageType": "Photo"
+        };
+
+        $.ajax({
+            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
+            beforeSend: function(xhrObj){
+                // Request headers
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","8e73ba146d4b44a0a7ed605fb8306728");
+            },
+            type: "GET",
+            // Request body
+            data: "{body}",
+        })
+        .done(function(data) {
+            alert("success");
+            console.log(data);
+
+            var stuffFromBing = data.value;
+
+          // Looping through each result item
+          for (var i = 0; i < stuffFromBing.length; i++) {
+
+            var image_div = $("<div>");
+
+            var search_image = $("<img>");
+                search_image.attr("src", data.value[i].contentUrl);
+            
+            image_div.append(search_image);
+
+            $("#image_container").prepend(image_div);
+        };
+        // .fail(function() {
+        //     alert("error");
+        // });
+    });
+
+
+    // This is for the buttons already on the page
+    // $("button").on("click", function() {
+    //   // Grabbing and storing the data-fantasy property value from the button
+    //   var fantasy = $(this).attr("data-fantasy");
+
+    //   // Constructing a queryURL using the fantasy name
+    //   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+    //   fantasy + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+    //   // Performing an AJAX request with the queryURL
+    //   $.ajax({
+    //     url: queryURL,
+    //     method: "GET"
+    // })
+    //     // After data comes back from the request
+    //     .done(function(response) {
+    //         console.log(queryURL);
+
+    //         console.log(response);
+
+    //       // storing the data from the AJAX request in the stuffFromBing variable
+    //       var stuffFromBing = response.data;
+
+    //       // Looping through each result item
+    //       for (var i = 0; i < stuffFromBing.length; i++) {
+
+    //         var image_div = $("<div>");
+
+    //         var search_image = $("<img>");
+
+    //         image_div.append(search_image);
+
+    //         $("#fantasticGifs").prepend(image_div);
+    //     }
+    // });
+    // });
+
+    // // Need this to run when the submit button is hit
+    // $("#moreFantasticGifs").on("click", function(event) {
+    //     event.preventDefault();
+
+    //     // This line grabs the input from the textbox
+    //     var fantasy = $("#fantasySearchBox").val().trim();
+
+    //     // Adding the fantasy from the textbox to our array
+    //     fantasyThemedStuff.push(fantasy);
+    //     console.log(fantasyThemedStuff);
+        
+    //     generatingSearchedForGifs();
+    //     // Calling renderButtons which handles the processing of our fantasy array
+    //     renderButtons();
+    // });
+
+    // // This is to create new buttons when someone searches for something, and to add that item to the appropriate array
+    // function renderButtons() {
+    //     // $("#greatFantasyButtons").empty();
+
+    //     var a = $("<button>");
+    //     a.addClass("fantasy");
+    //     a.attr("data-fantasy", fantasyThemedStuff[fantasyThemedStuff.length-1]);
+    //     a.text(fantasyThemedStuff[fantasyThemedStuff.length-1]);
+    //     $("#greatFantasyButtons").append(a);
+
+    // }
+
+});
+
+</script>
+</body>
+</html>
