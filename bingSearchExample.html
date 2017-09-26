@@ -2,6 +2,28 @@
 <html>
 <head>
     <title>JSSample</title>
+    <style type="text/css">
+
+    img {
+        width: 400px;
+        height: 300px;
+        margin: 15px;
+    };
+    
+    /*img:hover {
+        color: #424242; 
+        -webkit-transition: all .3s ease-in;
+        -moz-transition: all .3s ease-in;
+        -ms-transition: all .3s ease-in;
+        -o-transition: all .3s ease-in;
+        transition: all .3s ease-in;
+        opacity: 1;
+        transform: scale(1.15);
+        -ms-transform: scale(1.15); 
+        -webkit-transform: scale(1.15);
+        };*/
+
+    </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
@@ -19,10 +41,10 @@
     <div id="image_container">
     </div>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    $("#atkins_button").on("click", function() {
-        var params = {
+        $("#atkins_button").on("click", function() {
+            var params = {
         // Request parameters
         "q": "Atkin's food",
         "count": "10",
@@ -31,136 +53,124 @@
         "safeSearch": "Moderate",
         "imageType": "Photo",
         "size": "Large"
-        };
+    };
 
-        $("#image_container").empty();
+    $("#image_container").empty();
 
-        $.ajax({
-            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
-            beforeSend: function(xhrObj){
+    $.ajax({
+        url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
+        beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","8e73ba146d4b44a0a7ed605fb8306728");
             },
             type: "GET",
             // Request body
             data: "{body}",
-            })
+        })
 
-            .done(function(data) {
-                alert("success");
-                console.log(data);
+    .done(function(data) {
+        alert("success");
+        console.log(data);
 
-                var stuffFromBing = data.value;
+        var stuffFromBing = data.value;
 
               // Looping through each result item
               for (var i = 0; i < stuffFromBing.length; i++) {
 
-                var image_div = $("<div>");
-
                 var search_image = $("<img>");
                 search_image.attr("src", data.value[i].contentUrl);
-                
-                image_div.append(search_image);
 
-                $("#image_container").append(image_div);
-                };
-            });
-    });
+                $("#image_container").append(search_image);
+            };
+        });
+});
 
-    $("#vegetarian_button").on("click", function() {
-        var params = {
+        $("#vegetarian_button").on("click", function() {
+            var params = {
         // Request parameters
-        "q": "vegetarian foodORdiet",
+        "q": "vegetarian food NOvegan",
         "count": "10",
         "offset": "0",
         "mkt": "en-us",
         "safeSearch": "Moderate",
         "imageType": "Photo",
         "size": "Large"
-        };
+    };
 
-        $("#image_container").empty();
+    $("#image_container").empty();
 
-        $.ajax({
-            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
-            beforeSend: function(xhrObj){
+    $.ajax({
+        url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
+        beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","8e73ba146d4b44a0a7ed605fb8306728");
             },
             type: "GET",
             // Request body
             data: "{body}",
-            })
+        })
 
-            .done(function(data) {
-                alert("success");
-                console.log(data);
+    .done(function(data) {
+        alert("success");
+        console.log(data);
 
-                var stuffFromBing = data.value;
+        var stuffFromBing = data.value;
 
               // Looping through each result item
               for (var i = 0; i < stuffFromBing.length; i++) {
 
-                var image_div = $("<div>");
-
                 var search_image = $("<img>");
                 search_image.attr("src", data.value[i].contentUrl);
-                
-                image_div.append(search_image);
 
-                $("#image_container").append(image_div);
-                };
-            });
-    });
+                $("#image_container").append(search_image);
+            };
+        });
+});
 
-    $("#vegan_button").on("click", function() {
-        var params = {
+        $("#vegan_button").on("click", function() {
+            var params = {
         // Request parameters
-        "q": "vegan foodORdiet",
+        "q": "vegan food only",
         "count": "10",
         "offset": "0",
         "mkt": "en-us",
         "safeSearch": "Moderate",
         "imageType": "Photo",
         "size": "Large"
-        };
+    };
 
-        $("#image_container").empty();
+    $("#image_container").empty();
 
-        $.ajax({
-            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
-            beforeSend: function(xhrObj){
+    $.ajax({
+        url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
+        beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","8e73ba146d4b44a0a7ed605fb8306728");
             },
             type: "GET",
             // Request body
             data: "{body}",
-            })
+        })
 
-            .done(function(data) {
-                alert("success");
-                console.log(data);
+    .done(function(data) {
+        alert("success");
+        console.log(data);
 
-                var stuffFromBing = data.value;
+        var stuffFromBing = data.value;
 
               // Looping through each result item
               for (var i = 0; i < stuffFromBing.length; i++) {
 
-                var image_div = $("<div>");
-
                 var search_image = $("<img>");
                 search_image.attr("src", data.value[i].contentUrl);
-                
-                image_div.append(search_image);
 
-                $("#image_container").append(image_div);
-                };
-            });
-    });
+                $("#image_container").append(search_image);
+            };
+        });
+});
 
-    $("#south_beach_button").on("click", function() {
-        var params = {
+        $("#south_beach_button").on("click", function() {
+            var params = {
         // Request parameters
         "q": "South Beach food",
         "count": "10",
@@ -169,44 +179,40 @@
         "safeSearch": "Moderate",
         "imageType": "Photo",
         "size": "Large"
-        };
+    };
 
-        $("#image_container").empty();
+    $("#image_container").empty();
 
-        $.ajax({
-            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
-            beforeSend: function(xhrObj){
+    $.ajax({
+        url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
+        beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","8e73ba146d4b44a0a7ed605fb8306728");
             },
             type: "GET",
             // Request body
             data: "{body}",
-            })
+        })
 
-            .done(function(data) {
-                alert("success");
-                console.log(data);
+    .done(function(data) {
+        alert("success");
+        console.log(data);
 
-                var stuffFromBing = data.value;
+        var stuffFromBing = data.value;
 
               // Looping through each result item
               for (var i = 0; i < stuffFromBing.length; i++) {
 
-                var image_div = $("<div>");
-
                 var search_image = $("<img>");
                 search_image.attr("src", data.value[i].contentUrl);
-                
-                image_div.append(search_image);
 
-                $("#image_container").append(image_div);
-                };
-            });
-    });
+                $("#image_container").append(search_image);
+            };
+        });
+});
 
-    $("#mediterranean_button").on("click", function() {
-        var params = {
+        $("#mediterranean_button").on("click", function() {
+            var params = {
         // Request parameters
         "q": "mediterranean foodORdiet",
         "count": "10",
@@ -214,44 +220,40 @@
         "mkt": "en-us",
         "safeSearch": "Moderate",
         "imageType": "Photo"
-        };
+    };
 
-        $("#image_container").empty();
+    $("#image_container").empty();
 
-        $.ajax({
-            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
-            beforeSend: function(xhrObj){
+    $.ajax({
+        url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
+        beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","8e73ba146d4b44a0a7ed605fb8306728");
             },
             type: "GET",
             // Request body
             data: "{body}",
-            })
+        })
 
-            .done(function(data) {
-                alert("success");
-                console.log(data);
+    .done(function(data) {
+        alert("success");
+        console.log(data);
 
-                var stuffFromBing = data.value;
+        var stuffFromBing = data.value;
 
               // Looping through each result item
               for (var i = 0; i < stuffFromBing.length; i++) {
 
-                var image_div = $("<div>");
-
                 var search_image = $("<img>");
                 search_image.attr("src", data.value[i].contentUrl);
-                
-                image_div.append(search_image);
 
-                $("#image_container").append(image_div);
-                };
-            });
-    });
+                $("#image_container").append(search_image);
+            };
+        });
+});
 
-    $("#paleo_button").on("click", function() {
-        var params = {
+        $("#paleo_button").on("click", function() {
+            var params = {
         // Request parameters
         "q": "paleo foodORdiet",
         "count": "10",
@@ -259,42 +261,48 @@
         "mkt": "en-us",
         "safeSearch": "Moderate",
         "imageType": "Photo"
-        };
+    };
 
-        $("#image_container").empty();
+    $("#image_container").empty();
 
-        $.ajax({
-            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
-            beforeSend: function(xhrObj){
+    $.ajax({
+        url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
+        beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","8e73ba146d4b44a0a7ed605fb8306728");
             },
             type: "GET",
             // Request body
             data: "{body}",
-            })
+        })
 
-            .done(function(data) {
-                alert("success");
-                console.log(data);
+    .done(function(data) {
+        alert("success");
+        console.log(data);
 
-                var stuffFromBing = data.value;
+        var stuffFromBing = data.value;
 
               // Looping through each result item
               for (var i = 0; i < stuffFromBing.length; i++) {
 
-                var image_div = $("<div>");
-
                 var search_image = $("<img>");
                 search_image.attr("src", data.value[i].contentUrl);
-                
-                image_div.append(search_image);
 
-                $("#image_container").append(image_div);
-                };
+                $("#image_container").append(search_image);
+            };
+        });
+});
+
+
+
+
+        $(function () {
+            $("img").on('click', function () {
+                $(this).width(1000);
             });
-    });
+        });
 
-</script>
+
+    </script>
 </body>
 </html>
