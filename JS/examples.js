@@ -24,7 +24,7 @@ $("#atkins_button").on("click", function() {
             // Request body
             data: "{body}",
         }).done(function(data) {
-        	
+
         	console.log(data);
 
         	var stuffFromBing = data.value;
@@ -68,7 +68,7 @@ $("#vegetarian_button").on("click", function() {
         })
 
             .done(function(data) {
-            	
+
             	console.log(data);
 
             	var stuffFromBing = data.value;
@@ -84,7 +84,7 @@ $("#vegetarian_button").on("click", function() {
           });
         });
 
-var vegan_query = "vegan food only site:pinterest.com";
+var vegan_query = "vegan food -site:pinterest.com";
 
 $("#vegan_button").on("click", function() {
 	var params = {
@@ -112,7 +112,7 @@ $("#vegan_button").on("click", function() {
         })
 
     .done(function(data) {
-    	
+
     	console.log(data);
 
     	var stuffFromBing = data.value;
@@ -128,7 +128,7 @@ $("#vegan_button").on("click", function() {
           });
 });
 
-var south_beach_query = "South Beach food site:pinterest.com";
+var south_beach_query = "South Beach food -site:pinterest.com -travel";
 
 $("#south_beach_button").on("click", function() {
 	var params = {
@@ -156,7 +156,7 @@ $("#south_beach_button").on("click", function() {
         })
 
     .done(function(data) {
-    	
+
     	console.log(data);
 
     	var stuffFromBing = data.value;
@@ -172,7 +172,7 @@ $("#south_beach_button").on("click", function() {
           });
 });
 
-var mediterranean_query = "mediterranean foodORdiet site:pinterest.com";
+var mediterranean_query = "mediterranean food site:pinterest.com";
 
 $("#mediterranean_button").on("click", function() {
 	var params = {
@@ -199,7 +199,7 @@ $("#mediterranean_button").on("click", function() {
         })
 
     .done(function(data) {
-    	
+
     	console.log(data);
 
     	var stuffFromBing = data.value;
@@ -215,7 +215,7 @@ $("#mediterranean_button").on("click", function() {
           });
 });
 
-var paleo_query = "paleo foodORdiet site:pinterest.com";
+var paleo_query = "paleo food -site:pinterest.com";
 
 $("#paleo_button").on("click", function() {
 	var params = {
@@ -242,7 +242,7 @@ $("#paleo_button").on("click", function() {
         })
 
     .done(function(data) {
-    	
+
     	console.log(data);
 
     	var stuffFromBing = data.value;
