@@ -24,7 +24,7 @@ $("#atkins_button").on("click", function() {
             // Request body
             data: "{body}",
         }).done(function(data) {
-        	alert("success");
+        	
         	console.log(data);
 
         	var stuffFromBing = data.value;
@@ -40,7 +40,7 @@ $("#atkins_button").on("click", function() {
         });
     });
 
-var vegetarian_query = "vegetarian food NOvegan site:pinterest.com";
+var vegetarian_query = "vegetarian food -vegan site:pinterest.com";
 
 $("#vegetarian_button").on("click", function() {
 	var params = {
@@ -68,7 +68,7 @@ $("#vegetarian_button").on("click", function() {
         })
 
             .done(function(data) {
-            	alert("success");
+            	
             	console.log(data);
 
             	var stuffFromBing = data.value;
@@ -112,7 +112,7 @@ $("#vegan_button").on("click", function() {
         })
 
     .done(function(data) {
-    	alert("success");
+    	
     	console.log(data);
 
     	var stuffFromBing = data.value;
@@ -156,7 +156,7 @@ $("#south_beach_button").on("click", function() {
         })
 
     .done(function(data) {
-    	alert("success");
+    	
     	console.log(data);
 
     	var stuffFromBing = data.value;
@@ -199,7 +199,7 @@ $("#mediterranean_button").on("click", function() {
         })
 
     .done(function(data) {
-    	alert("success");
+    	
     	console.log(data);
 
     	var stuffFromBing = data.value;
@@ -242,7 +242,7 @@ $("#paleo_button").on("click", function() {
         })
 
     .done(function(data) {
-    	alert("success");
+    	
     	console.log(data);
 
     	var stuffFromBing = data.value;

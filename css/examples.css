@@ -2,12 +2,12 @@
     width: 395px;
     height: 260px;
     margin: 15px;
-};
+}
   
 .image_hover:hover {
     color: #424242; 
     opacity: 1;
-    transform: scale(3);
-    -ms-transform: scale(3); 
-    -webkit-transform: scale(3);
-};
+    transform: scale(2);
+    -ms-transform: scale(2); 
+    -webkit-transform: scale(2);
+}
