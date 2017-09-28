@@ -12,6 +12,10 @@ $("#atkins_button").on("click", function() {
             "size": "Large"
         };
 
+        $("#image_container_header_div").empty();
+
+    	$("#image_container_header_div").append("<h1>Atkin's Diet</h1><br><h4>Mouse over to see a larger image!</h4>");
+
         $("#image_container").empty();
 
         $.ajax({
@@ -36,6 +40,7 @@ $("#atkins_button").on("click", function() {
             	search_image.attr("src", data.value[i].contentUrl);
 
             	$("#image_container").append(search_image);
+
             };
         });
     });
@@ -53,6 +58,10 @@ $("#vegetarian_button").on("click", function() {
                 "imageType": "Photo",
                 "size": "Large"
             };
+
+        	$("#image_container_header_div").empty();
+
+    		$("#image_container_header_div").append("<h1>Vegetarian</h1><br><h4>Mouse over to see a larger image!</h4>");
 
             $("#image_container").empty();
 
@@ -98,6 +107,10 @@ $("#vegan_button").on("click", function() {
         "size": "Large"
     };
 
+    $("#image_container_header_div").empty();
+
+    $("#image_container_header_div").append("<h1>Vegan</h1><br><h4>Mouse over to see a larger image!</h4>");
+
     $("#image_container").empty();
 
     $.ajax({
@@ -142,6 +155,10 @@ $("#south_beach_button").on("click", function() {
         "size": "Large"
     };
 
+    $("#image_container_header_div").empty();
+
+    $("#image_container_header_div").append("<h1>South Beach Diet</h1><br><h4>Mouse over to see a larger image!</h4>");
+
     $("#image_container").empty();
 
     $.ajax({
@@ -185,6 +202,10 @@ $("#mediterranean_button").on("click", function() {
         "imageType": "Photo"
     };
 
+    $("#image_container_header_div").empty();
+
+    $("#image_container_header_div").append("<h1>Mediterranean Diet</h1><br><h4>Mouse over to see a larger image!</h4>");
+
     $("#image_container").empty();
 
     $.ajax({
@@ -227,6 +248,10 @@ $("#paleo_button").on("click", function() {
         "safeSearch": "Moderate",
         "imageType": "Photo"
     };
+
+    $("#image_container_header_div").empty();
+
+    $("#image_container_header_div").append("<h1>Paleo Diet</h1><br><h4>Mouse over to see a larger image!</h4>");
 
     $("#image_container").empty();
 
